@@ -28,7 +28,7 @@ Loop through a single array and compare the numbers to see if they are grader th
 
 Loop 1
 
-|||||||||| | 
+| | | | | | | | | | | 
 |------------------------|
 |**9**|4|7|3|8|1|6|10|5|2|
 |4|**9**|7|3|8|1|6|10|5|2|
