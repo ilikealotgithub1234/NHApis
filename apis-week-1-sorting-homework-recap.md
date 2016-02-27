@@ -26,6 +26,33 @@ Once you can input highscores that are sorted, you have a few more tasks.
 Loop through a single array and compare the numbers to see if they are grader than or less than each other. If the first number is greater than the second number, swap the numbers. Keep doing this until you've looped through the array N by N times. N being the total length of the array. This is a basic sorting algorithm.
 
 
+Loop 1
+**9** 4 7 3 8 1 6 10 5 2
+4 **9** 7 3 8 1 6 10 5 2
+4 7 **9** 3 8 1 6 10 5 2
+4 7 3 **9** 8 1 6 10 5 2
+4 7 3 8 **9** 1 6 10 5 2
+4 7 3 8 1 **9** 6 10 5 2
+4 7 3 8 1 6 **9** 10 5 2
+4 7 3 8 1 6 **9** 10 5 2 # 9 is not great than 10, so we don't swap
+4 7 3 8 1 6 9 5 **10** 2 # 10 is greater than 5 so we swap places
+4 7 3 8 1 6 9 5 2 **10** # 10 is greater than 2, so we swap places, now the last index of the array is the largest number in the array
+
+
+Loop 2
+**4** 7 3 8 1 6 9 5 2 10
+4 **7** 3 8 1 6 9 5 2 10
+4 3 **7** 8 1 6 9 5 2 10
+4 3 7 **8** 1 6 9 5 2 10
+4 3 7 1 **8** 6 9 5 2 10
+4 3 7 1 6 **8** 9 5 2 10
+4 3 7 1 6 8 **9** 5 2 10
+4 3 7 1 6 8 5 **9** 2 10
+4 3 7 1 6 8 5 2 **9** 10 # We don't have to check the 9 against the 10 since we knew from the last sort it's already the largest number
+
+Loop 8 more times and the array will be sorted.
+
+
 ### Grading Policy
 
 * Feature Completion
