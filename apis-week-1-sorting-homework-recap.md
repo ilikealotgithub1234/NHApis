@@ -26,7 +26,7 @@ Once you can input highscores that are sorted, you have a few more tasks.
 Loop through a single array and compare the numbers to see if they are grader than or less than each other. If the first number is greater than the second number, swap the numbers. Keep doing this until you've looped through the array N by N times. N being the total length of the array. This is a basic sorting algorithm.
 
 
-Loop 1
+**Loop 1**
 
 |||||||||| | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
@@ -55,7 +55,7 @@ Loop 1
 ```
 
 ----
-Loop 2
+**Loop 2**
 
 |||||||||| | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
