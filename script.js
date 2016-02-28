@@ -41,10 +41,12 @@ $('#Submit').on('click', function(event){
                 swapCount +=1;
             }
         }
+      while(k>0 ){
+          return array;
+      }
     }
-    while(k>0 );
-    return array;
-  }
+    var array = [1,6,3,5,2,8,5];
+    sort(array);
 
-array = [1,6,3,5,2,8,5];
-sort(array);
+
+  }
