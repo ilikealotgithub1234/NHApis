@@ -35,10 +35,10 @@ var chooseRandomCoins = function(array){
   else{
     var x = 0
     for(x;x<length;x++)
-    rand = random(0,length);
+    rand = Math.random(0,length);
     var randomCoin = array[rand];
-    arrayOfRandom.append(randomCoin);
-    return arrayOfRandom[];
+    arrayOfRandom.push(randomCoin);
+    return arrayOfRandom;
   }
 }
 $button.on('click',chooseRandomCoins(coins));
