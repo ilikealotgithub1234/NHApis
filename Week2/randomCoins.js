@@ -38,8 +38,9 @@ var chooseRandomCoins = function(array){
     var x = 0
     for(x;x<5;x++){
     var rand = Math.random(0,length);
+    console.log(rand);
     var randomCoin = array[rand];
-
+    console.log(randomCoin);
     arrayOfRandom.push(randomCoin);
     }
     
