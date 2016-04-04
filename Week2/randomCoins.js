@@ -28,7 +28,7 @@ var chooseRandomCoins = function(array){
   var arrayOfRandom = [];
   var length = array.length;
   //if the array is ␀ (U+2400)
-  if (length =< 0){
+  if (length <= 0){
     console.log('invalid');
 
   }
