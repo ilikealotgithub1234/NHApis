@@ -28,19 +28,20 @@ var chooseRandomCoins = function(array){
   var arrayOfRandom = [];
   var length = array.length;
   //if the array is ␀ (U+2400)
+  console.log(length);
+  console.log(array);
   if (length <= 0){
     console.log('invalid');
 
   }
   else{
     var x = 0
-    for(x;x<length;x++){
-    rand = Math.random(0,length);
+    for(x;x<5;x++){
+    var rand = Math.random(0,length);
     var randomCoin = array[rand];
     arrayOfRandom.push(randomCoin);
     return arrayOfRandom;
+    }
   }
-}
-  
 }
 $button.on('click',chooseRandomCoins(coins));
