@@ -1,4 +1,4 @@
-var button = $('randomButton')
+var $button = $('randomButton')
 var coins = [
   {penny:1},
   {nickel:5},
@@ -37,7 +37,8 @@ var chooseRandomCoins = function(array){
     for(x;x<length;x++)
     rand = random(0,length);
     var randomCoin = array[rand];
-    arrayOfRandom[]
+    arrayOfRandom.append(randomCoin);
     return arrayOfRandom[];
   }
 }
+$button.on('click',chooseRandomCoins(coins));
