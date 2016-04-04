@@ -34,11 +34,13 @@ var chooseRandomCoins = function(array){
   }
   else{
     var x = 0
-    for(x;x<length;x++)
+    for(x;x<length;x++){
     rand = Math.random(0,length);
     var randomCoin = array[rand];
     arrayOfRandom.push(randomCoin);
     return arrayOfRandom;
   }
+}
+  
 }
 $button.on('click',chooseRandomCoins(coins));
