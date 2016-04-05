@@ -1,8 +1,8 @@
 var get$ = $('#get');
 var po$t = $('#post');
 var priv_key = 'JqyGxekAvyT6dKe4BaAX';
-var name = 'erik';
-var score = 56;
+var name = alert('Name?');
+var score = alert('Score');
 var publicKey = 'QGy3xKqXmySZy3QX1lgj'
 score
 po$t.on('click',function(){
@@ -15,4 +15,13 @@ po$t.on('click',function(){
 
       })
 })
+get$.on('click',function(){
+    $.ajax({
+      url: `http://data.sparkfun.com/output/${publicKey}
+`,
+      method: "GET"
+    }).done((response) => {
+      console.log(response);
 
+      })
+})
