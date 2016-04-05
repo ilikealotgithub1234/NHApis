@@ -1,8 +1,8 @@
 var get$ = $('#get');
 var po$t = $('#post');
 var priv_key = 'JqyGxekAvyT6dKe4BaAX';
-var name = alert('Name?');
-var score = alert('Score');
+var name = prompt('Name?');
+var score = prompt('Score');
 var publicKey = 'QGy3xKqXmySZy3QX1lgj'
 score
 po$t.on('click',function(){
