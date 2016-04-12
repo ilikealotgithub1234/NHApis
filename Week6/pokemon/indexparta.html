@@ -75,35 +75,70 @@
 */
     </script>
     -->
+<ul id = 'pokemon-abilities'>
+
+
+
+</ul>
+
   <label for="pokemon-name">Pokémon Name</label>
     <input type="text" id="pokemon-name" />
     <input type="button" id="submit" />
 <script type="text/javascript">
 $(document).ready(function() {
 
-  var pokemon = (id,name,type) => {
+  var pokemon = function(id,name,type){
     this.id = id;
     this.name = name;
     this.type = type;
 
   }
 //declare the basic pokemon
-var allPokemon = {
+var basicPokemon = {
   bulbasaur: new pokemon(1,"Bulbasaur",['grass','poison']),
   charmander: new pokemon(4,"Charmander",['fire']),
   squirtle: new pokemon(7,"Squirtle",['water']),
 
 }
 
+$.ajax({
+      url: `http://pokeapi.co/api/v2/ability/`,
+      method: "GET"
+    }).done((response) => {
+      console.log(response);
+      console.log(response.results.length);
+      var undyne = response.results;
+      for(var i = 0;i < response.results.length;i++){
+        $('#pokemon-abilities').prepend(`<li>${response.results[i].name}</li>`)
+        // stuf for image
+        $("#pokemon-abilities").prepend("<img src=’""‘/>");
 
-var userPoke
-var id = pokemon[userPoke].id;
-var name = pokemon[userPoke].name;
-var type = pokemon[userPoke].type;
+      }
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/*for (var i = 0;i<)
+var id = allPokemon.bulbasaur.id;
+var name = allPokemon.bulbasaur.name;
+var type = allPokemon.bulbasaur.type;
 
 
 console.log("Name: " + name,"id:" + id , "type:" + type);
-
+*/
 
 
 
