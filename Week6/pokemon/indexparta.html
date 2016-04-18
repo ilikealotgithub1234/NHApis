@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <title>
 
 
     </title>
-  </head>
-  <body>
-<!-- <label for 'pokemon-name'>name</label>
+</head>
+
+<body>
+    <!-- <label for 'pokemon-name'>name</label>
 <input type = 'text' id = 'pokemon-name'></input>
 <label for 'pokemon-type'>type(s)</label>
 <input type = 'text' id = 'pokemon-type'></input>
@@ -75,83 +77,318 @@
 */
     </script>
     -->
-<ul id = 'pokemon-abilities'>
+    <ul id='pokemon-abilities'>
 
 
 
-</ul>
+    </ul>
 
-  <label for="pokemon-name">Pokémon Name</label>
+    <label for="pokemon-name">Pokémon Name</label>
     <input type="text" id="pokemon-name" />
     <input type="button" id="submit" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+                    var pokemon = function(id, name, type) {
+                            this.id = id;
+                            this.name = name;
+                            this.type = type;
+
+                        }
+                        //declare the basic pokemon
+                    var basicPokemon = {
+                            bulbasaur: new pokemon(1, "Bulbasaur", ['grass', 'poison']),
+                            charmander: new pokemon(4, "Charmander", ['fire']),
+                            squirtle: new pokemon(7, "Squirtle", ['water']),
+
+                        }
+                        //pokemon trainer stuff
+                    var trainPokemon = (pokemon) => {
+                            $.ajax({
+                                url: `http://pokeapi.co/api/v2/pokemon/`,
+                                method: "GET"
+                            }).done((response) => {
+                                var allPokemon = response.results;
+                                console.log(`all results` + response);
+                                console.log(`just .results array` + response.results);
+                                console.log(`length` + response.results.length);
+                                var undyne = response.results;
+                                for (var i = 0; i < response.results.length; i++) {
+
+                                }
+
+
+
+
+                            })
+
+
+
+
+                            $.ajax({
+                                url: `http://pokeapi.co/api/v2/ability/`,
+                                method: "GET"
+                            }).done((response) => {
+                                console.log(response);
+                                console.log(response.results.length);
+                                var undyne = response.results;
+                                for (var i = 0; i < response.results.length; i++) {
+                                    $('#pokemon-abilities').prepend(`<li id = `
+                                        $ {
+                                            undyne[i]
+                                        }
+                                        `></li>`);
+
+                                    //stuf for image
+                                    for (var i = 0; i < response.results.length; i++) {
+
+
+                                        $.ajax({
+                                            url: `http://pokeapi.co/api/v2/ability/`,
+                                            method: "GET"
+                                        }).done((response) => {
+                                            console.log(response);
+                                            console.log(response.results);
+                                            var length = response.results.length;
+                                            for (var i = 0; i < length; i++) {
+                                                var ability = response.results[i];
+                                                var ab = ability.url;
+                                                $(`#${i}`).append(`<img id = `
+                                                    $ {
+                                                        i
+                                                    }
+                                                    image ` src = `
+                                                    $ {
+                                                        imgsrc
+                                                    }
+                                                    `>`);
+                                            }
+
+                                        })
+
+                                    }
+                                }
+
+
+
+
+                            })
+
+
+
+
+                            /*for (var i = 0;i<)
+                            var id = allPokemon.bulbasaur.id;
+                            var name = allPokemon.bulbasaur.name;
+                            var type = allPokemon.bulbasaur.type;
+
+
+                            console.log("Name: " + name,"id:" + id , "type:" + type);
+                            */
+    //beautified by http://jsbeautifier.org/
+    //not a sponser
+
+    </script>
+
+
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title>
+
+
+    </title>
+</head>
+
+<body>
+    <!-- <label for 'pokemon-name'>name</label>
+<input type = 'text' id = 'pokemon-name'></input>
+<label for 'pokemon-type'>type(s)</label>
+<input type = 'text' id = 'pokemon-type'></input>
+<button type = 'Submit'>Submit</button>
+
+
+
+<div class = 'pokemon'>
+  <span class = 'pokemon-name'></span>
+  <ul class = 'pokemon-abilities'>
+</ul>
+</div>
+
+
+    <label for 'pokemon-id'>id</label>
+    <input type = 'text' id = 'pokemon-id'>
+
+
+
 <script type="text/javascript">
-$(document).ready(function() {
 
-  var pokemon = function(id,name,type){
-    this.id = id;
-    this.name = name;
-    this.type = type;
 
-  }
-//declare the basic pokemon
-var basicPokemon = {
-  bulbasaur: new pokemon(1,"Bulbasaur",['grass','poison']),
-  charmander: new pokemon(4,"Charmander",['fire']),
-  squirtle: new pokemon(7,"Squirtle",['water']),
+    $(document).ready(function() {
+      var pokemon = (id,name,type) =>{
+        this.id = id;
+        this.name = name;
+        this.type = type;
 
-}
+      };
 
-$.ajax({
-      url: `http://pokeapi.co/api/v2/ability/`,
-      method: "GET"
-    }).done((response) => {
-      console.log(response);
-      console.log(response.results.length);
-      var undyne = response.results;
-      for(var i = 0;i < response.results.length;i++){
-        $('#pokemon-abilities').prepend(`<li>${response.results[i].name}</li>`)
-        // stuf for image
-        $("#pokemon-abilities").prepend("<img src=’""‘/>");
 
+
+      $('#button').click(function(event) {
+        console.log(name)
+
+    });
+
+
+
+
+      var bulbasaur = new pokemon(1,"Bulbasaur",['grass','poison'])
+      var charmander = new pokemon(4,"Charmander",['fire']);
+      var squirtle = new pokemon(7,"Squirtle",['water'])
+
+
+/*        "id" : 1,
+        "name" : "Bulbasaur",
+        "type" : "grass","poison"
+      },
+      {
+        "id" : 4,
+        "name" : "Charmander",
+        "type" : "fire"
+      },
+      {
+        "id" : 7,
+        "name" : "Squirtle",
+        "type" : "water"
       }
 
 
-
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/*for (var i = 0;i<)
-var id = allPokemon.bulbasaur.id;
-var name = allPokemon.bulbasaur.name;
-var type = allPokemon.bulbasaur.type;
-
-
-console.log("Name: " + name,"id:" + id , "type:" + type);
+    }
 */
+    </script>
+    -->
+    <ul id='pokemon-abilities'>
+
+
+
+    </ul>
+
+    <label for="pokemon-name">Pokémon Name</label>
+    <input type="text" id="pokemon-name" />
+    <input type="button" id="submit" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+                    var pokemon = function(id, name, type) {
+                            this.id = id;
+                            this.name = name;
+                            this.type = type;
+
+                        }
+                        //declare the basic pokemon
+                    var basicPokemon = {
+                            bulbasaur: new pokemon(1, "Bulbasaur", ['grass', 'poison']),
+                            charmander: new pokemon(4, "Charmander", ['fire']),
+                            squirtle: new pokemon(7, "Squirtle", ['water']),
+
+                        }
+                        //pokemon trainer stuff
+                    var trainPokemon = (pokemon) => {
+                            $.ajax({
+                                url: `http://pokeapi.co/api/v2/pokemon/`,
+                                method: "GET"
+                            }).done((response) => {
+                                var allPokemon = response.results;
+                                console.log(`all results` + response);
+                                console.log(`just .results array` + response.results);
+                                console.log(`length` + response.results.length);
+                                var undyne = response.results;
+                                for (var i = 0; i < response.results.length; i++) {
+
+                                }
 
 
 
 
+                            })
 
 
 
 
-});
+                            $.ajax({
+                                url: `http://pokeapi.co/api/v2/ability/`,
+                                method: "GET"
+                            }).done((response) => {
+                                console.log(response);
+                                console.log(response.results.length);
+                                var undyne = response.results;
+                                for (var i = 0; i < response.results.length; i++) {
+                                    $('#pokemon-abilities').prepend(`<li id = `
+                                        $ {
+                                            undyne[i]
+                                        }
+                                        `></li>`);
 
-</script>
+                                    //stuf for image
+                                    for (var i = 0; i < response.results.length; i++) {
+
+
+                                        $.ajax({
+                                            url: `http://pokeapi.co/api/v2/ability/`,
+                                            method: "GET"
+                                        }).done((response) => {
+                                            console.log(response);
+                                            console.log(response.results);
+                                            var length = response.results.length;
+                                            for (var i = 0; i < length; i++) {
+                                                var ability = response.results[i];
+                                                var ab = ability.url;
+                                                $(`#${i}`).append(`<img id = `
+                                                    $ {
+                                                        i
+                                                    }
+                                                    image ` src = `
+                                                    $ {
+                                                        imgsrc
+                                                    }
+                                                    `>`);
+                                            }
+
+                                        })
+
+                                    }
+                                }
 
 
 
-  </body>
+
+                            })
+
+
+
+
+                            /*for (var i = 0;i<)
+                            var id = allPokemon.bulbasaur.id;
+                            var name = allPokemon.bulbasaur.name;
+                            var type = allPokemon.bulbasaur.type;
+
+
+                            console.log("Name: " + name,"id:" + id , "type:" + type);
+                            */
+    //beautified by http://jsbeautifier.org/
+    //not a sponser
+
+    </script>
+
+
+
+</body>
+
 </html>
