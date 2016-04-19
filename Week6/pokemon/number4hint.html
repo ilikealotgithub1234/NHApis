@@ -1,0 +1,49 @@
+<!-- this consist of tests with the hint -->
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="pokemon">
+   <span class="pokemon-name"></span>
+   <ul class="pokemon-abilities">
+  <!-- <li id="li-0">Lorem ipsum<img src="#"/></li> -->
+   </ul>
+</div>
+<script>
+var userPokemonId = prompt(`what id?`);
+  $.ajax({
+    url: `http://pokeapi.co/api/v2/pokemon/${userPokemonId}/`,
+    success: (response) => {
+      $("div.pokemon").attr("id", response.id);
+      $("div.pokemon").prepend("<img src='" + response.sprites.front_default + "'/>");
+      var i=0;
+      response.abilities.forEach((obj) => {
+        console.log(i);
+        $(".pokemon-abilities").append("<li id='li-"+i+"'>" + obj.ability.name + "</li>");
+        $.ajax({
+          url: obj.ability.url,
+          success: (result) => {
+            console.log(result.pokemon[i].pokemon.name);
+            var h=0;
+            $.ajax({
+              url: result.pokemon[i].pokemon.url,
+              success: (result) => {
+                // result.pokemon.forEach((obj2) => {
+                //   h++;
+                //   console.log(obj2);
+                //   $("#li-"+h).append("<img src='"+obj2.sprites.front_default+"'/>");
+                // });
+              }
+            })
+          }
+        });
+        i=i+1;//i++ i+=1
+      });
+    }
+  });
+</script>
+</body>
+</html>
